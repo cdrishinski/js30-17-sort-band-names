@@ -50,11 +50,21 @@ const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'N
 
 const bandList = document.querySelector('#bands')
 
-bandList.addEventListener('click', ()=>{
-  alert("hi")
-})
+function listBandNames(list){
+  console.log(list) 
 
+ console.log(list.sort())
+ const newList = [...list];
 
+ 
+ console.log(newList)
+ 
+ 
+}
+
+// bandList.addEventListener('click', listBandNames(bands))
+
+listBandNames(bands)
 </script>
 
 </body>
