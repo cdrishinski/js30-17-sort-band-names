@@ -43,12 +43,14 @@
 
   </style>
 
-  <ul id="bands"></ul>
+  <ul id="bands">
+    <li class="list"></li>
+  </ul>
 
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
-const bandList = document.querySelector('#bands')
+const bandList = document.querySelector('.list')
 
 function listBandNames(list){
   console.log(list) 
@@ -56,9 +58,9 @@ function listBandNames(list){
  console.log(list.sort())
  const newList = [...list];
 
- 
  console.log(newList)
- 
+
+ bandList.innerHTML = newList
  
 }
 
