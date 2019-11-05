@@ -49,35 +49,47 @@
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
-const bandList = document.querySelector('#bands')
 
-function listBandNames(list){
-list.sort()
- const newList = [...list];
-
- console.log(newList)
-
-newList.forEach((val, index)=>{
-  if (val.substring(0, 1) === ('a')){
-    console.log(val, index)
-  }
-})
-
-
- for (var i = 0; i < newList.length; i++) {
-    var band = newList[i];
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(band));
-    bandList.appendChild(li);
+function strip (bandName){
+  return bandName.replace(/^(a |the |an )/i, '').trim();
 }
+
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b)? 1 : -1);
+
+document.querySelector('#bands').innerHTML = 
+  sortedBands
+    .map(band => `<li>${band}</li>`).join('');
+
+console.log(sortedBands)
+// const bandList = document.querySelector('#bands')
+
+// function listBandNames(list){
+// list.sort()
+//  const newList = [...list];
+
+//  console.log(newList)
+
+// newList.forEach((val, index)=>{
+//   if (val.substring(0, 1) === ('a')){
+//     console.log(val, index)
+//   }
+// })
+
+
+//  for (var i = 0; i < newList.length; i++) {
+//     var band = newList[i];
+//     var li = document.createElement('li');
+//     li.appendChild(document.createTextNode(band));
+//     bandList.appendChild(li);
+// }
 
 
  
-}
+// }
 
 // bandList.addEventListener('click', listBandNames(bands))
 
-listBandNames(bands)
+// listBandNames(bands)
 </script>
 
 </body>
